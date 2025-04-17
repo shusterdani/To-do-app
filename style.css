@@ -1,7 +1,7 @@
 
 body {
     font-family: monospace;
-    background-image: url(/pictures/empty-blank-brown-cork-board-texture-background-with-copy-space-notice-board-or-bulletin-board-image-close-up-of-corkboard-texture-photo.jpg);
+    background-image: url(/To-do-app/pictures/cork.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -90,7 +90,7 @@ form>* {
     height: 250px;
     display: flex;
     flex-direction: column;
-    background-image: url(/pictures/sticky-note.png);
+    background-image: url(/To-do-app/pictures/sticky-note.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
