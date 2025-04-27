@@ -1,17 +1,16 @@
-
 body {
     font-family: monospace;
-    background-image: url(/To-do-app/pictures/cork.jpg);
+    background-image: url(/pictures/cork.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
-    
+
 }
 
 .underdog {
     font-family: "Underdog", system-ui;
-  }
-  
+}
+
 h1 {
     font-weight: bolder;
     font-size: 300%;
@@ -27,12 +26,10 @@ h1 {
 }
 
 form {
-    flex-direction: column; 
+    flex-direction: column;
     font-weight: 400;
     font-size: large;
 }
-
-
 
 #taskTextBox {
     resize: none;
@@ -69,10 +66,6 @@ label {
     padding: 10px;
 }
 
-form>* {
-    /* border: 1px solid lightgreen; */
-}
-
 #containerDiv {
     display: flex;
     flex-wrap: wrap;
@@ -90,11 +83,11 @@ form>* {
     height: 250px;
     display: flex;
     flex-direction: column;
-    background-image: url(/To-do-app/pictures/sticky-note.png);
+    background-image: url(/pictures/sticky-note.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
 #delete-btn {
@@ -106,19 +99,19 @@ form>* {
     padding: 5px;
     background-color: beige;
     border-radius: 5px;
-   
-    
 }
 
 .card>#time {
-  margin-top: auto;
-  text-align: left;
+    position: absolute;
+    text-align: left;
+    margin-top: 220px;
 }
 
 .card>#task {
     font-size: large;
     font-weight: bolder;
     padding: 60px;
+    overflow: scroll;
 }
 
 .btn {
@@ -137,5 +130,3 @@ form>* {
 .btn:active {
     background-color: beige;
 }
-
-

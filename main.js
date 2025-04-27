@@ -9,27 +9,28 @@ const containerDiv = document.getElementById("containerDiv");
 function loadTodo() {
     loadTodoList()
     displayTodoList();
-   
-
 }
+
 function addTodo() {
     pushTodo();
     displayTodoList();
     clearForm();
     saveTodo()
-    isValidTextBox()
 }
-
 
 function pushTodo() {
     const task = taskTextBox.value;
     const time = timeTextBox.value;
-    const todo = { task, time };
 
-    if(isValidTextBox(todo))
-        todoList.push(todo);
-    
-    else {alert("invalid");}
+    let todo = { task, time };
+
+    let isValid = isValidTextBox(todo);
+    if(!isValid) {
+        alert("Invalid Task!");
+    }
+    else{
+    todoList.push(todo);
+    }
 }
 
 function displayTodoList() {
@@ -45,16 +46,17 @@ function displayTodoList() {
         html += card;
     }
     containerDiv.innerHTML = html;
-
-
 }
+
+const today = new Date().toLocaleString("EN-CA").slice(0, 10);
+document.querySelectorAll('input[type="datetime-local"]').forEach(el => {
+    el.min = today + "T00:00";
+});
 
 function deleteMe(index) {
     todoList.splice(index, 1);
     displayTodoList();
     saveTodo()
-
-
 }
 
 function clearForm() {
@@ -64,13 +66,13 @@ function clearForm() {
 }
 
 function saveTodo() {
-   const saveTodoJSON = JSON.stringify(todoList);
-   localStorage.setItem("todoList", saveTodoJSON);
+    const saveTodoJSON = JSON.stringify(todoList);
+    localStorage.setItem("todoList", saveTodoJSON);
 }
 
 function loadTodoList() {
     const myTodoStr = localStorage.getItem("todoList");
-    if(myTodoStr)
+    if (myTodoStr)
         todoList = JSON.parse(myTodoStr);
 }
 
