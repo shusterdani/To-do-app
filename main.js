@@ -4,7 +4,7 @@ let = todoList = [];
 const taskTextBox = document.getElementById("taskTextBox");
 const timeTextBox = document.getElementById("timeTextBox");
 const containerDiv = document.getElementById("containerDiv");
-
+const content = document.getElementById("content");
 
 function loadTodo() {
     loadTodoList()
@@ -14,7 +14,6 @@ function loadTodo() {
 function addTodo() {
     pushTodo();
     displayTodoList();
-    clearForm();
     saveTodo()
 }
 
@@ -26,11 +25,11 @@ function pushTodo() {
 
     let isValid = isValidTextBox(todo);
     if(!isValid) {
-        alert("Invalid Task!");
+        alert("Please Enter a Task!");
+        return;
     }
-    else{
     todoList.push(todo);
-    }
+    clearForm();
 }
 
 function displayTodoList() {
@@ -53,10 +52,17 @@ document.querySelectorAll('input[type="datetime-local"]').forEach(el => {
     el.min = today + "T00:00";
 });
 
-function deleteMe(index) {
+function confirmDelete(index) {
     todoList.splice(index, 1);
     displayTodoList();
     saveTodo()
+}
+
+function deleteMe(index) {
+    const confirmed = confirm("Are you sure you want to delete this task?");
+    if(confirmed){
+        confirmDelete(index);
+    }
 }
 
 function clearForm() {
